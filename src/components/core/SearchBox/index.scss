@@ -1,0 +1,18 @@
+.searchBox {
+	position: relative;
+	display: flex;
+	color: #495057;
+	border: 1px solid #eeeeee;
+	padding: 8px 8px 8px 8px;
+	.searchInput {
+		width: 100%;
+		::placeholder {
+			color: #6d4f88;
+		}
+	}
+	.searchBoxIcon {
+		color: #ec6f40;
+		padding-top: 5px;
+		size: 10px;
+	}
+}

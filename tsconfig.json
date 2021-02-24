@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "dist/",
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "es2015",
+    "jsx": "react",
+  },
+  "lib": [
+    "dom",
+    "es7"
+  ],
+  "include": [
+    "./src/**/*"
+  ]
+}
