@@ -11,7 +11,6 @@ export default class LeftPannel extends React.Component {
         <Grid item xs={3} className="leftPaneel">
             <Typography className="filter">Filters</Typography>
             <Category />
-            <MobileBrands />
         </Grid>
     );
   }

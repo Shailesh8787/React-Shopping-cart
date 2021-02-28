@@ -3,7 +3,7 @@ export interface Product {
   id: number;
   title: string;
   body: string;
-}
+};
 
 export interface Cart {
   id: number;
@@ -13,4 +13,9 @@ export interface Cart {
   price: number;
   quantity: number;
   selected: boolean
-}
+};
+
+export interface Filters {
+  selectedCategory: String,
+  query: String
+};

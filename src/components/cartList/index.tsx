@@ -130,7 +130,9 @@ export class CartList extends React.Component<LinkProps, State> {
                             ))}
                         </Card>
                     </Grid>
-                    <Grid  item xs={3} className="leftPaneel right">
+                    {
+                        this.props.cartItems.length > 0
+                        ? <Grid  item xs={3} className="leftPaneel right">
                         <Typography className="priceRang">PRICE DETAILS</Typography>
                         <div className="textbox">
                             <Typography className="alignleft">Price ({this.props.cartItems.length} item)</Typography>
@@ -157,6 +159,9 @@ export class CartList extends React.Component<LinkProps, State> {
       ), 0)/100 * 10 + this.state.shippingCharge).toFixed(2)}</Typography>
                         </div>
                     </Grid>
+                    :null
+                    }
+                   
                 </Grid>
             </main>
         </Container>

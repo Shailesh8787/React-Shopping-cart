@@ -3,14 +3,15 @@ import thunk, { ThunkMiddleware } from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
 import { ProductReducer } from '../reducers/ProductReducer';
-import {ShoppinReducer} from '../reducers/CartReducer'
+import { ShoppinReducer } from '../reducers/CartReducer'
+import { FiltersReducer } from '../reducers/FiltersReducers'
 
 import { AppActions } from '../actions/AppActions';
 
 
 const logger = createLogger();
 
-export const rootReducer = combineReducers({ ProductReducer, ShoppinReducer });
+export const rootReducer = combineReducers({ ProductReducer, ShoppinReducer, FiltersReducer });
 
 export type AppState = ReturnType<typeof rootReducer>;
 

@@ -30,7 +30,7 @@ body{
 		background-color: #ffffff;
 		border: 1px solid #eee;
 		padding-top: 2px;
-		height: 600px;
+		height: 270px;
 		.categoryDropdown {
 			width: 100%;
 			.MuiInputBase-input {
@@ -67,10 +67,13 @@ body{
 	width: 100%;
 }
 .filterHeading {
-	color: #ec6f40;
+	color: #ec6f40 !important;
 	font-size: 18px !important;
 	font-weight: bold !important;
-	padding-top: 15px;
+	padding-top: 15px !important;
+}
+.hide {
+	display: none !important;
 }
 
 .pageHeading {
@@ -207,3 +210,34 @@ footer{
 	margin: auto;
 }
   
+.MuiFormGroup-root {
+	padding-left: 13px;
+    padding-top: 11px;
+}
+.redioButton {
+	text-transform: capitalize;
+}
+.active {
+	color: #ec6f40;
+}
+.inActive {
+	color: #609;
+}
+.selectedFilters {
+	color: darkgrey;
+	padding-top: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 10px;
+	span {
+		font-size: 14px;
+	}
+	small {
+		color: #ec6f40;
+		font-size: 14px;
+	}
+	a {
+		color: #07c !important;
+		cursor: pointer;
+	}
+}

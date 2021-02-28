@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { ProductActionTypes, FETCH_PRODUCTS_REQUEST, FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_FAILURE, } from '../types/ProductTypes';
 import { Product } from '../interfaces/Product';
-import {GET_PRODUCTS} from '../../constants/apiURL'
+import {GET_PRODUCTS, GET_PRODUCTS_BY_CATEGORY} from '../../constants/apiURL'
 import axios from 'axios'
 
 const requestProducts = (): ProductActionTypes => ({
@@ -23,15 +23,20 @@ const invalidateProduct = (error): ProductActionTypes => ({
   error: 'Unable to fetch product list',
 });
 
-export const boundRequestProducts = () => {
+export const boundRequestProducts = (filters) => {
   return (dispatch: Dispatch<ProductActionTypes>) => {
     dispatch(requestProducts());
-    return axios.get(GET_PRODUCTS, {
+    var apiURl = GET_PRODUCTS;
+    if(filters.selectedCategory) {
+      apiURl = `${GET_PRODUCTS}/category/${filters.selectedCategory}`;
+    }
+    return axios.get(apiURl, {
         headers: {"Access-Control-Allow-Origin": "*"}
     })
       .then((res) => {
-        console.log(res.data);
-        dispatch(receiveProducts(res.data))
+        const productFilter = res.data.filter(object =>
+          Object.keys(object).some(key => object[key].toString().toLowerCase().includes(filters.query.toLowerCase())));
+        dispatch(receiveProducts(filters.query ? productFilter : res.data))
       })
       .catch((error) => dispatch(invalidateProduct(error)));
   };
